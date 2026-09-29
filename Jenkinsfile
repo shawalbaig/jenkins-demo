@@ -39,6 +39,8 @@ pipeline {
             steps {
                 echo 'Packaging the application...'
                 sh './mvnw package -DskipTests'
+
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
     }
@@ -62,10 +64,12 @@ pipeline {
 //             }
 //         }
 //         stage('Package') {
-//                     steps {
-//                         echo 'Packaging the application...'
-//                         sh './mvnw package -DskipTests'
-//                     }
+//             steps {
+//                 echo 'Packaging the application...'
+//                 sh './mvnw package -DskipTests'
+//
+//                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+//             }
 //         }
 //     }
 // }
