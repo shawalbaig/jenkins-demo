@@ -61,5 +61,11 @@ pipeline {
                 sh './mvnw test'
             }
         }
+        stage('Package') {
+                    steps {
+                        echo 'Packaging the application...'
+                        sh './mvnw package -DskipTests'
+                    }
+        }
     }
 }
