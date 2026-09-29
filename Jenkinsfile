@@ -8,5 +8,12 @@ pipeline {
                 sh './mvnw clean compile'
             }
         }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh './mvnw test'
+            }
+        }
     }
 }
