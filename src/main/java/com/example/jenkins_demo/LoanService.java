@@ -1,4 +1,4 @@
-package jenkins_demo;
+package com.example.jenkins_demo;
 
 import org.springframework.stereotype.Service;
 
