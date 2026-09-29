@@ -9,10 +9,29 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                sh './mvnw test'
+        stage('Parallel Tests') {
+            parallel {
+
+                stage('Unit Tests') {
+                    steps {
+                        echo 'Running unit tests...'
+                        sh './mvnw test -Dtest=LoanServiceTest'
+                    }
+                }
+
+                stage('Integration Tests') {
+                    steps {
+                        echo 'Running integration tests...'
+                        sh './mvnw test -Dtest=LoanServiceIntegrationTest'
+                    }
+                }
+
+                stage('Application Tests') {
+                    steps {
+                        echo 'Running application tests...'
+                        sh './mvnw test -Dtest=JenkinsDemoApplicationTests'
+                    }
+                }
             }
         }
     }
