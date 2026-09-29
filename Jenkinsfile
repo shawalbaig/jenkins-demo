@@ -34,5 +34,12 @@ pipeline {
                 }
             }
         }
+
+        stage('Package') {
+            steps {
+                echo 'Packaging the application...'
+                sh './mvnw package -DskipTests'
+            }
+        }
     }
 }
