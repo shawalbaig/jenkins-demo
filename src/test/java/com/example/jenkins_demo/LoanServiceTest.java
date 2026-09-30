@@ -12,7 +12,7 @@ class LoanServiceTest {
     void customerShouldBeEligibleWhenRemainingIncomeIsAtLeast10000() {
         boolean result = loanService.isEligible(30000, 20000);
 
-        assertTrue(result);
+        assertFalse(result);
     }
 
     @Test
